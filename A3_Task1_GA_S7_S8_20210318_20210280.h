@@ -8,16 +8,16 @@ class MAvector{
 private:
     int capacity;
     int size;
-    T *arr;    
+    T **arr;    
 public:
     MAvector(int a);
-    MAvector(T *a, int n);
+    MAvector(T **a, int n);
     MAvector(const MAvector &);
     ~MAvector();
     MAvector &operator=(const MAvector &);
     MAvector &operator=(const MAvector &&);
     T &operator[](int);
-    int push_back(T);
+    int push_back(T ob);
     T pop_back();
     //void erase(iterator);
     //void erase(iterator1, iterator2);
