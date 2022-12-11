@@ -10,10 +10,11 @@ private:
     int size;
     T **arr;    
 public:
-    MAvector(int a);
+    MAvector(int n);
     MAvector(T **a, int n);
     MAvector(const MAvector &);
     ~MAvector();
+    void initialize(int n);
     MAvector &operator=(const MAvector &);
     MAvector &operator=(const MAvector &&);
     T &operator[](int);
@@ -25,8 +26,8 @@ public:
     //void insert(iterator, T);
     //void iterator begin();
     //void iterator end();
-    bool operator==(const MAvector<T> &);
-    bool operator<(const MAvector<T> &);
+    bool operator==(const MAvector<T> &ob);
+    bool operator<(const MAvector<T> &ob);
     int vecSize();
     const int vecCapacity();
     const int resize();
