@@ -18,32 +18,28 @@ MAvector<T>::MAvector(T *a, int n){
 }
 
 template<class T>
-MAvector<T>::MAvector(const MAvector &){}
-
-template<class T>
 MAvector<T>::~MAvector(){
     delete[] this->arr;
-    
 }
 
 
 template<class T>
 MAvector<T> & MAvector<T>::operator=(const MAvector<T> &vec){
-arr=vec->arr;
-size=vec.size;
-capacity=vec.capacity;
+    arr = vec->arr;
+    size = vec.size;
+    capacity = vec.capacity;
 }
 
 template<class T>
 MAvector<T>& MAvector<T>::operator=(const MAvector &&vec){
-arr=vec->arr;
-size=vec.size;
-capacity=vec.capacity;
+    arr = vec->arr;
+    size = vec.size;
+    capacity = vec.capacity;
 }
 
 template<class T>
 T& MAvector<T>::operator[](const int i){
-    if (i < 0 || i >= this->size){ 
+    if (i < 0 || i >= this->size){
         throw "range error";
     }
     return this->arr[i];
@@ -63,10 +59,6 @@ T MAvector<T>::pop_back(){
     delete arr[size-1];
 }
 
-
-
-
-
 template<class T>
 void MAvector<T>::clear(){
     for (int i = 0; i < this->size; i++){
@@ -79,7 +71,7 @@ void MAvector<T>::clear(){
 template<class T>
  ostream& operator<<(ostream& out,MAvector<T>& vec){
     for(T it:vec){
-        out<<it<<" ";
+        out << it << " ";
     }
     return out;
 }
@@ -138,7 +130,6 @@ const int MAvector<T>::resize(){
     }
 
     delete[] arr;
-    
     return capacity;
 }
 

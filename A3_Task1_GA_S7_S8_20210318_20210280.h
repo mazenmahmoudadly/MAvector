@@ -21,7 +21,6 @@ public:
 
     MAvector(int n=1);
     MAvector(T *a, int n=1);
-    MAvector(const MAvector &);
     ~MAvector();
 
 
