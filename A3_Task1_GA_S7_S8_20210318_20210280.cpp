@@ -60,6 +60,52 @@ T MAvector<T>::pop_back(){
 }
 
 template<class T>
+T* MAvector<T>::begin(){ 
+    return &arr[0]; 
+}
+
+template<class T>
+T* MAvector<T>::end(){ 
+    return begin() + size;
+}
+
+template<class T>
+void MAvector<T>::ensureCap(size_t cap){
+    if (cap > capacity){
+        size_t s = (cap > 2 * capacity) ? cap : 2 * capacity;
+    }
+    }
+
+template<class T>
+void MAvector<T>::erase(iterator iter){
+   while ((iter+1) != end()){
+        *iter = *(iter + 1);
+        iter++;
+    }
+    size--;
+}
+
+template<class T>
+void MAvector<T>::erase(iterator i1, iterator i2){
+    for (MAvector<int>::iterator it = i1; it != i2; it++){
+        erase(it);
+    }
+}
+
+template<class T>
+T* MAvector<T>::insert(iterator it, const T &n){
+    size_t pos = it - begin();
+    resize();
+    for (size_t i = size; i > pos; i--)
+    {
+        arr[i] = arr[i - 1];
+    }
+    arr[pos] = n;
+    size++;
+    return begin() + pos;
+}
+
+template<class T>
 void MAvector<T>::clear(){
     for (int i = 0; i < this->size; i++){
         delete this->arr[i];
