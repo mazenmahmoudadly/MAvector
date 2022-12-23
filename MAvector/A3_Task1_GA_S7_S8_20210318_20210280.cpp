@@ -27,7 +27,7 @@ MAvector<T>::MAvector(int n){
 }
 
 /**
- * @brief scond constructor
+ * @brief second constructor
  * 
  * @tparam T 
  * @param a pointer to array
@@ -186,9 +186,9 @@ void MAvector<T>::erase(iterator iter){
  */
 template<class T>
 void MAvector<T>::erase(iterator i1, iterator i2){
-for (auto it = i1; it != i2; ++it) {
-    erase(it);
-}
+    for (auto it = i1, end = i2; end >= it; end--) {
+        erase(end);
+    }
 }
 
 /**
