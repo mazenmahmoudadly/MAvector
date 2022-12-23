@@ -163,7 +163,7 @@ void MAvector<T>::ensureCap(size_t cap){
     }
 
 /**
- * @brief 
+ * @brief erase index by iterator
  * 
  * @tparam T 
  * @param iter 
@@ -178,11 +178,11 @@ void MAvector<T>::erase(iterator iter){
 }
 
 /**
- * @brief 
+ * @brief erase range of indexes by iterators
  * 
  * @tparam T 
- * @param i1 
- * @param i2 
+ * @param i1 first iterator to be erased
+ * @param i2 last iterator to be erased
  */
 template<class T>
 void MAvector<T>::erase(iterator i1, iterator i2){
@@ -192,11 +192,11 @@ void MAvector<T>::erase(iterator i1, iterator i2){
 }
 
 /**
- * @brief 
+ * @brief insert a value by iterator
  * 
  * @tparam T 
- * @param it 
- * @param n 
+ * @param it iteator of the new value position
+ * @param n the value to be added
  * @return T* 
  */
 template<class T>
@@ -213,7 +213,7 @@ T* MAvector<T>::insert(iterator it, const T &n){
 }
 
 /**
- * @brief clear the vector's data
+ * @brief clear the elements in the vector
  * 
  * @tparam T 
  */
