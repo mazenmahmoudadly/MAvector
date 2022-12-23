@@ -3,7 +3,7 @@
 using namespace std;
 
 int main(){
-    MAvector<int> g1;
+    MAvector<int> g1(5);
 
 
     for (int i = 0; i < 5; i++){ // 0 1 2 3 4 
@@ -17,9 +17,9 @@ int main(){
     g1.push_back(8); // 0 1 2 3 4 8
     cout << endl;
 
-    cout << g1.vecCapacity(); // 8
+    cout << g1.vecCapacity(); // 10
     cout << endl;
-
-    g1.erase(g1.begin() + 2, g1.begin() + 4); // 0 1 3 4 8
+    MAvector<int>::iterator iter=g1.begin()+2; 
+     cout<<g1.insert(iter,10);
     cout << g1;
 }

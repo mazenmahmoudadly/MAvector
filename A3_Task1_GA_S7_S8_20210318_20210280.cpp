@@ -87,9 +87,9 @@ void MAvector<T>::erase(iterator iter){
 
 template<class T>
 void MAvector<T>::erase(iterator i1, iterator i2){
-    for (MAvector<int>::iterator it = i1; it != i2; it++){
-        erase(it);
-    }
+for (auto it = i1; it != i2; ++it) {
+    erase(it);
+}
 }
 
 template<class T>

@@ -1,5 +1,5 @@
-#ifndef TEST_MARK_FUNCTION
-#define TEST_MARK_FUNCTION
+#ifndef A3_TASK1_GA_S7_S8_20210318_20210280_MARK_FUNCTION
+#define A3_TASK1_GA_S7_S8_20210318_20210280_MARK_FUNCTION
 #include<iostream>
 #include<iterator>
 #include<stdexcept>
@@ -16,7 +16,7 @@ private:
 
 public:
   typedef T *iterator;
-
+ 
   MAvector(int n = 1);
   MAvector(T *a, int n = 1);
   ~MAvector();
