@@ -150,19 +150,6 @@ T* MAvector<T>::end(){
 }
 
 /**
- * @brief 
- * 
- * @tparam T 
- * @param cap 
- */
-template<class T>
-void MAvector<T>::ensureCap(size_t cap){
-    if (cap > capacity){
-        size_t s = (cap > 2 * capacity) ? cap : 2 * capacity;
-    }
-    }
-
-/**
  * @brief erase index by iterator
  * 
  * @tparam T 

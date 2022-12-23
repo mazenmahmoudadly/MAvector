@@ -45,7 +45,6 @@ public:
   void pop_back();
   iterator begin();
   iterator end();
-  void ensureCap(size_t cap);
   void erase(iterator iter);
   void erase(iterator i1, iterator i2);
   void clear();
