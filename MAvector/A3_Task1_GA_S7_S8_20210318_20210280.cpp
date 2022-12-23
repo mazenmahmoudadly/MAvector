@@ -1,5 +1,23 @@
+/**
+ * @file A3_Task1_GA_S7_S8_20210318_20210280.cpp
+ * @author Amr Hesham Mohamed (20210280) 
+ * @author Mazen Mahmoud Shokry (20210318)
+ * @brief this is the file where all the class functions are developed
+ * @version 0.1
+ * @date 2022-12-23
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
+
 #include"A3_Task1_GA_S7_S8_20210318_20210280.h"
 
+/**
+ * @brief first constructor
+ * 
+ * @tparam T
+ * @param n te initial capacity
+ */
 template<class T>
 MAvector<T>::MAvector(int n){
     this->capacity = n;
@@ -8,6 +26,13 @@ MAvector<T>::MAvector(int n){
    
 }
 
+/**
+ * @brief scond constructor
+ * 
+ * @tparam T 
+ * @param a pointer to array
+ * @param n initial capacity
+ */
 template<class T>
 MAvector<T>::MAvector(T *a, int n){
     strcpy_s(arr, a);
@@ -16,13 +41,24 @@ MAvector<T>::MAvector(T *a, int n){
     this->arr = new T [this->capacity];
 }
 
+/**
+ * @brief destructor
+ * 
+ * @tparam T 
+ */
 template<class T>
 MAvector<T>::~MAvector(){
     delete[] this->arr;
     arr = nullptr;
 }
 
-
+/**
+ * @brief overloading operator =
+ * 
+ * @tparam T 
+ * @param vec copy refrence
+ * @return MAvector<T>& 
+ */
 template<class T>
 MAvector<T> & MAvector<T>::operator=(const MAvector<T> &vec){
     arr = vec->arr;
@@ -30,6 +66,13 @@ MAvector<T> & MAvector<T>::operator=(const MAvector<T> &vec){
     capacity = vec.capacity;
 }
 
+/**
+ * @brief overloading operator =
+ * 
+ * @tparam T 
+ * @param vec move refrence
+ * @return MAvector<T>& 
+ */
 template<class T>
 MAvector<T>& MAvector<T>::operator=(const MAvector &&vec){
     arr = vec->arr;
@@ -37,6 +80,13 @@ MAvector<T>& MAvector<T>::operator=(const MAvector &&vec){
     capacity = vec.capacity;
 }
 
+/**
+ * @brief overloading operator []
+ * 
+ * @tparam T 
+ * @param i index
+ * @return T& vector element
+ */
 template<class T>
 T& MAvector<T>::operator[](const int i){
     if (i < 0 || i >= this->size){
@@ -45,6 +95,13 @@ T& MAvector<T>::operator[](const int i){
     return this->arr[i];
 }
 
+/**
+ * @brief add element to vector
+ * 
+ * @tparam T 
+ * @param ob object to be added
+ * @return int 
+ */
 template<class T>
 int MAvector<T>::push_back(const T &ob){
     if(size >= this->capacity){
@@ -54,8 +111,14 @@ int MAvector<T>::push_back(const T &ob){
     return size;
 }
 
+/**
+ * @brief remove last element of the vector
+ * 
+ * @tparam T 
+ * @return T 
+ */
 template<class T>
-T MAvector<T>::pop_back(){
+T MAvector<T>::pop_back(){ 
     if(size == 0){
         cout << "vector is empty\n"; 
     }
@@ -64,16 +127,34 @@ T MAvector<T>::pop_back(){
     }
 }
 
+/**
+ * @brief begining of the vector
+ * 
+ * @tparam T 
+ * @return T* 
+ */
 template<class T>
 T* MAvector<T>::begin(){ 
     return &arr[0]; 
 }
 
+/**
+ * @brief end of the vector
+ * 
+ * @tparam T 
+ * @return T* 
+ */
 template<class T>
 T* MAvector<T>::end(){ 
     return begin() + size;
 }
 
+/**
+ * @brief 
+ * 
+ * @tparam T 
+ * @param cap 
+ */
 template<class T>
 void MAvector<T>::ensureCap(size_t cap){
     if (cap > capacity){
@@ -81,6 +162,12 @@ void MAvector<T>::ensureCap(size_t cap){
     }
     }
 
+/**
+ * @brief 
+ * 
+ * @tparam T 
+ * @param iter 
+ */
 template<class T>
 void MAvector<T>::erase(iterator iter){
    while ((iter+1) != end()){
@@ -90,6 +177,13 @@ void MAvector<T>::erase(iterator iter){
     size--;
 }
 
+/**
+ * @brief 
+ * 
+ * @tparam T 
+ * @param i1 
+ * @param i2 
+ */
 template<class T>
 void MAvector<T>::erase(iterator i1, iterator i2){
 for (auto it = i1; it != i2; ++it) {
@@ -97,6 +191,14 @@ for (auto it = i1; it != i2; ++it) {
 }
 }
 
+/**
+ * @brief 
+ * 
+ * @tparam T 
+ * @param it 
+ * @param n 
+ * @return T* 
+ */
 template<class T>
 T* MAvector<T>::insert(iterator it, const T &n){
     size_t pos = it - begin();
@@ -110,6 +212,11 @@ T* MAvector<T>::insert(iterator it, const T &n){
     return begin() + pos;
 }
 
+/**
+ * @brief clear the vector's data
+ * 
+ * @tparam T 
+ */
 template<class T>
 void MAvector<T>::clear(){
     for (int i = 0; i < this->size; i++){
@@ -118,7 +225,14 @@ void MAvector<T>::clear(){
     delete[] this->arr;
 }
 
-
+/**
+ * @brief operator to for cout (<<)
+ * 
+ * @tparam T 
+ * @param out type
+ * @param vec vector to be printed
+ * @return ostream& 
+ */
 template<class T>
  ostream& operator<<(ostream& out,MAvector<T>& vec){
     for(T it:vec){
@@ -126,6 +240,15 @@ template<class T>
     }
     return out;
 }
+
+/**
+ * @brief two vectors comparision (using overloading of (==))
+ * 
+ * @tparam T 
+ * @param ob second object to be compared
+ * @return true if two vectors are equal
+ * @return false if two vectors are not equal
+ */
 template<class T>
 bool MAvector<T>::operator==(const MAvector<T> &ob){
     if(size != ob.size){
@@ -144,6 +267,14 @@ bool MAvector<T>::operator==(const MAvector<T> &ob){
     }
 }
 
+/**
+ * @brief overloading (<) to check if one is smaller than the other
+ * 
+ * @tparam T 
+ * @param ob object to be compared
+ * @return true if is smaller than the main vector
+ * @return false if is greater than the main vector
+ */
 template<class T>
 bool MAvector<T>::operator<(const MAvector<T> &ob){
     if(size < ob.size){
@@ -162,16 +293,34 @@ bool MAvector<T>::operator<(const MAvector<T> &ob){
     }
 }
 
+/**
+ * @brief function to get vector's size
+ * 
+ * @tparam T 
+ * @return int vector's size 
+ */
 template<class T>
 int MAvector<T>::vecSize(){
     return size;
 }
 
+/**
+ * @brief function to get vector's capacity
+ * 
+ * @tparam T 
+ * @return const int vector's capacity
+ */
 template<class T>
 const int MAvector<T>::vecCapacity(){
     return capacity;
 }
 
+/**
+ * @brief function to resize vector's capacity if size > capacity
+ * 
+ * @tparam T 
+ * @return const int capacity
+ */
 template<class T>
 const int MAvector<T>::resize(){
     this->capacity *= 1.5;
@@ -184,9 +333,19 @@ const int MAvector<T>::resize(){
     return capacity;
 }
 
+/**
+ * @brief function to check if vector is emoty
+ * 
+ * @tparam T 
+ * @return true if no elements are found
+ * @return false if elements are found
+ */
 template<class T>
 bool MAvector<T>::empty(){
     if(size == 0){
         return true;
+    }
+    else{
+        return false;
     }
 }

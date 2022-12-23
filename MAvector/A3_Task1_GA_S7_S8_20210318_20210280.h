@@ -1,3 +1,15 @@
+/**
+ * @file A3_Task1_GA_S7_S8_20210318_20210280.h
+ * @author Amr Hesham Mohamed (20210280)
+ * @author Mazen Mahmoud Shokry (20210318)
+ * @brief this is the header file of the vector class(MAvector)
+ * @version 0.1
+ * @date 2022-12-23
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
+
 #ifndef A3_TASK1_GA_S7_S8_20210318_20210280_MARK_FUNCTION
 #define A3_TASK1_GA_S7_S8_20210318_20210280_MARK_FUNCTION
 #include<iostream>
@@ -7,6 +19,11 @@
 
 using namespace std;
 
+/**
+ * @brief The class of the vector
+ * 
+ * @tparam T
+ */
 template<typename T>
 class MAvector{
 private:
