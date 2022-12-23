@@ -118,7 +118,7 @@ int MAvector<T>::push_back(const T &ob){
  * @return T 
  */
 template<class T>
-T MAvector<T>::pop_back(){ 
+void MAvector<T>::pop_back(){ 
     if(size == 0){
         cout << "vector is empty\n"; 
     }

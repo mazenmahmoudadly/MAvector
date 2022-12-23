@@ -42,7 +42,7 @@ public:
   MAvector &operator=(const MAvector &&vec);
   T &operator[](const int);
   int push_back(const T &ob);
-  T pop_back();
+  void pop_back();
   iterator begin();
   iterator end();
   void ensureCap(size_t cap);

@@ -26,9 +26,9 @@ int main(){
         g1.push_back(i);
     }
     g1.pop_back();// 0 1 2 3 4 5 6 7 
-     g1.erase(g1.begin(),g1.begin()+4); //  5 6 7 
+    g1.erase(g1.begin(),g1.begin()+4); //  5 6 7 
     g1.insert(g1.begin()+1,10); // 5 10 6 7
-     g1.push_back(8); //5 10 6 7 8
+    g1.push_back(8); //5 10 6 7 8
     for (int i = 0; i < 5; i++){
         cout << g1[i] << " ";
     }
