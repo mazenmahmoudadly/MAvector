@@ -14,12 +14,12 @@ MAvector<T>::MAvector(T *a, int n){
     this->capacity = n;
     this->size = 0;
     this->arr = new T [this->capacity];
-    
 }
 
 template<class T>
 MAvector<T>::~MAvector(){
     delete[] this->arr;
+    arr = nullptr;
 }
 
 
@@ -56,7 +56,12 @@ int MAvector<T>::push_back(const T &ob){
 
 template<class T>
 T MAvector<T>::pop_back(){
-    delete arr[size-1];
+    if(size == 0){
+        cout << "vector is empty\n"; 
+    }
+    else{
+        size--;
+    }
 }
 
 template<class T>
@@ -169,7 +174,7 @@ const int MAvector<T>::vecCapacity(){
 
 template<class T>
 const int MAvector<T>::resize(){
-    this->capacity *= 2;
+    this->capacity *= 1.5;
     T *tempArr = new T[this->capacity];
     for (int i = 0; i < this->size; i++){
         tempArr[i] =  T(this->arr[i]);

@@ -5,10 +5,10 @@ using namespace std;
 int main(){
     MAvector<int> g1(5);
 
-
     for (int i = 0; i < 5; i++){ // 0 1 2 3 4 
         g1.push_back(i);
     }
+    g1.pop_back();
 
     for (int i = 0; i < 5; i++){
         cout << g1[i] << " ";
@@ -19,7 +19,4 @@ int main(){
 
     cout << g1.vecCapacity(); // 10
     cout << endl;
-    MAvector<int>::iterator iter=g1.begin()+2; 
-     cout<<g1.insert(iter,10);
-    cout << g1;
 }
